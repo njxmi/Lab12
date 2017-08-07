@@ -47,7 +47,7 @@ angular.module("toDoList", [])
 
    
     function clearForm() {
-        $scope.formItem = { name: "", price: null };
+        $scope.formItem = { Date: "", Task: null };
     }
 
     // All of the code in this entire controller function runs as soon as the page loads.
