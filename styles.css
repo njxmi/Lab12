@@ -1,0 +1,40 @@
+//for Lab 12
+
+body {
+	background-color: #FFB6C1;
+	background-color: #00E5EE;
+}
+
+input[type=text] {
+    background-color: #FFB6C1;
+    color: white;
+	width: 50%;
+}
+
+input[type=date] {
+    background-color: #FFB6C1;
+    color: white;
+	width: 20%;
+}
+
+input[type=submit] {
+    background-color: #00E5EE;
+    color: white;
+	width: 10%;
+}
+
+.header {
+		border: 3px;
+		border-style: solid;
+		border-color: brown;
+		color: brown;
+		align: center;
+		max-width; 100px;
+		background-color: #FFB6C1;
+}	
+
+ul {
+  //list-style-image: url('/check-box.png')
+  list-style:none;
+}
+

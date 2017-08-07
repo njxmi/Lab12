@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lab 12 To-do list</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+        <script src="script.js" charset="utf-8"></script>
+    </head>
+    <!-- Specifies the name of the app and the controller. These must match what's in our JS file. -->
+    <body ng-app="toDoList" ng-controller="toDoListController">
+        <div class="wrapper">
+            <div class="block list">
+					<div class="header">
+                <h2>To-do List</h2>
+					</div>
+                <ul>
+                    <!-- ng-repeat makes copies of the element for each item in an array. -->
+                    <!-- `items` is the array. `item` is a new variable representing each item.
+                         It's kinda like items.forEach(function(item) {}) -->
+                    <li class="list__item" ng-repeat="item in items">
+                        <!-- ng-click calls JavaScript when element is clicked.
+                             $index is a special variable that Angular creates inside of ng-repeat.
+                             It's the 0-based index of the current item. -->
+                        <span class="list__item__remove" ng-click="removeItemAt($index)">-</span>
+                        <!-- double brackets are used to fill in values from variables -->
+                        <span class="list__item__price">{{item.date | date}}
+						<label class="list__item__label"> : {{item.task}} </label>
+                    </li>
+                </ul>
+            </div>
+            <!-- ng-submit calls the JavaScript when the form is submitted. -->
+            <!-- the bonus of ng-submit vs ng-click on the button is that submit triggers
+                 form validation and you can submit by pressing ENTER -->
+            <form class="block form" ng-submit="addItem(formItem)">
+                <div class="form__input">
+                    <!-- ng-model means when the user types into this input, the name property of
+                         formItem will automatically be set to match. -->
+                    <label>Date:</label> <input type="date" ng-model="formItem.date">
+                </div>
+                <div class="form__input">
+                    <label>Task:</label> <input type="text" ng-model="formItem.task">
+                </div>
+                <div class="form__input">
+                    <!-- Submit the form by pressing enter or clicking this button -->
+                    <input type="submit" value="Add"/>
+                </div>
+            </form>
+    </body>
+</html>
